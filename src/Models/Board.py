@@ -16,7 +16,7 @@ class Board:
                 if self.board[rowIndex][columnIndex] == 0:
                     print(Fore.WHITE+"[+]", end="")
                 else:
-                    print(Fore.BLACK+"[+]",end="")
+                    print(Fore.RED+"[+]",end="")
 
             print()
 

@@ -88,6 +88,19 @@ class TestMethods(unittest.TestCase):
 
         self.assertEqual(boardObj1.board, boardObj2.board)
 
+    def test_DeadCellWithThreeNeighbors(self):
+        boardObj1 = Board(10, 50)
+        boardObj2 = Board(10, 50)
+        gameOfLifeObj = GameOfLife()
+        gameOfLifeObj.makeItASActiveCell(boardObj1.board, 0, 0)
+        gameOfLifeObj.makeItASActiveCell(boardObj1.board, 1, 0)
+        gameOfLifeObj.makeItASActiveCell(boardObj1.board, 2, 2)
+
+        gameOfLifeObj.makeItASActiveCell(boardObj2.board, 1, 1)
+
+        gameOfLifeObj.playTheGame(boardObj1)
+
+        self.assertEqual(boardObj1.board, boardObj2.board)
 
 if __name__ == '__main__':
     unittest.main()

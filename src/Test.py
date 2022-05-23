@@ -138,7 +138,25 @@ class Test_StillLifesPattern(unittest.TestCase):
         self.assertEqual(boardObj1.board, boardObj2.board)
 
 
+class Test_OscillatoresPattern(unittest.TestCase):
+    def test_BlinkerPattern(self):
+        boardObj1 = Board(10, 50)
+        boardObj2 = Board(10, 50)
+        gameOfLifeObj = GameOfLife()
+        gameOfLifeObj.makeItASActiveCell(boardObj1.board, 1, 1)
+        gameOfLifeObj.makeItASActiveCell(boardObj1.board, 1, 2)
+        gameOfLifeObj.makeItASActiveCell(boardObj1.board, 1, 3)
 
+        gameOfLifeObj.makeItASActiveCell(boardObj2.board, 1, 2)
+        gameOfLifeObj.makeItASActiveCell(boardObj2.board, 0, 2)
+        gameOfLifeObj.makeItASActiveCell(boardObj2.board, 2, 2)
+
+        for i in range(9):
+            gameOfLifeObj.playTheGame(boardObj1)
+
+        self.assertEqual(boardObj1.board, boardObj2.board)
+
+    
 
 if __name__ == '__main__':
     unittest.main()

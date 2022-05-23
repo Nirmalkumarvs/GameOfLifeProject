@@ -19,3 +19,7 @@ class Board:
                     print(Fore.BLACK+"[+]",end="")
 
             print()
+
+    def isValidIndex(self,neighbourRowIndex,neighbourColumnIndex):
+        if self.BOARD_STARTING_INDEX <= neighbourRowIndex < self.rowLength and self.BOARD_STARTING_INDEX <= neighbourColumnIndex < self.columnLength:
+            return True

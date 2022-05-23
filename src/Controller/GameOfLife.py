@@ -11,3 +11,12 @@ class GameOfLife:
 
     def makeItAsDeadCell(self,resultBoard,rowIndex,columnIndex):
         resultBoard[rowIndex][columnIndex]=self.DEAD_CELL
+
+    def getActiveNeighbourCellsCount(self,rowIndex,columnIndex,Board):
+        activeNeighbourCellsCount=0
+        for rowChangeValue, columnChangeValue in self.DIRECTIONS:
+            neighbourRowIndex = rowIndex + rowChangeValue
+            neighbourColumnIndex = columnIndex + columnChangeValue
+            if Board.isValidIndex(neighbourRowIndex, neighbourColumnIndex) and self.isActiveCell(Board,neighbourRowIndex, neighbourColumnIndex):
+                activeNeighbourCellsCount += 1
+        return activeNeighbourCellsCount

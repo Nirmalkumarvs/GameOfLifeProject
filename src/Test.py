@@ -33,5 +33,15 @@ class TestMethods(unittest.TestCase):
         gameOfLifeObj.makeItASActiveCell(boardObj.board,0,0)
         self.assertEqual(True, gameOfLifeObj.isActiveCell(boardObj.board,0,0))
 
+    def test_getActiveNeighbourCellsCount_method(self):
+        boardObj = Board(10, 50)
+        gameOfLifeObj = GameOfLife()
+        gameOfLifeObj.makeItASActiveCell(boardObj.board, 0, 0)
+        gameOfLifeObj.makeItASActiveCell(boardObj.board, 0, 1)
+        gameOfLifeObj.makeItASActiveCell(boardObj.board, 0, 2)
+        gameOfLifeObj.makeItASActiveCell(boardObj.board, 1, 0)
+        gameOfLifeObj.makeItASActiveCell(boardObj.board, 1, 2)
+        self.assertEqual(5, gameOfLifeObj.getActiveNeighbourCellsCount(1,1,boardObj))
+
 if __name__ == '__main__':
     unittest.main()

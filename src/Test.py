@@ -102,5 +102,6 @@ class TestMethods(unittest.TestCase):
 
         self.assertEqual(boardObj1.board, boardObj2.board)
 
+
 if __name__ == '__main__':
     unittest.main()

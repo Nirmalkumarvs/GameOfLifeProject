@@ -1,5 +1,5 @@
 #to create specified active cell pattern in the board
-AVAILABLE_BOARDS=["Kickback","TwoGlider","Acorn","T-pattern","Square","Triangle",]
+AVAILABLE_BOARDS=["Kickback","TwoGlider","Acorn","T-pattern","Square","Triangle","Blinker","Toad"]
 
 def setKickbackPattern(Board):
     Board.board[10][5] = 1
@@ -58,3 +58,16 @@ def setTrianglePattern(Board):
     Board.board[7][5] = 1
     Board.board[7][6] = 1
     Board.board[7][7] = 1
+
+def setBlinkerPattern(Board):
+    Board.board[5][5] = 1
+    Board.board[5][6] = 1
+    Board.board[5][7] = 1
+
+def setToadPattern(Board):
+    Board.board[5][5] = 1
+    Board.board[5][6] = 1
+    Board.board[5][7] = 1
+    Board.board[6][5] = 1
+    Board.board[6][6] = 1
+    Board.board[6][4] = 1

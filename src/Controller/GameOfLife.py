@@ -22,6 +22,10 @@ class GameOfLife:
             setSquarePattern(Board)
         elif boardChoice==6:
             setTrianglePattern(Board)
+        elif boardChoice==7:
+            setBlinkerPattern(Board)
+        elif boardChoice==8:
+            setToadPattern(Board)
 
     def isActiveCell(self,Board,rowIndex,columnIndex):
         return Board.board[rowIndex][columnIndex]==self.ACTIVE_CELL

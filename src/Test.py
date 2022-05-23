@@ -160,6 +160,7 @@ class Test_OscillatoresPattern(unittest.TestCase):
         boardObj1 = Board(10, 50)
         boardObj2 = Board(10, 50)
         gameOfLifeObj = GameOfLife()
+
         gameOfLifeObj.makeItASActiveCell(boardObj1.board, 2, 2)
         gameOfLifeObj.makeItASActiveCell(boardObj1.board, 2, 3)
         gameOfLifeObj.makeItASActiveCell(boardObj1.board, 2, 4)
@@ -173,6 +174,7 @@ class Test_OscillatoresPattern(unittest.TestCase):
         gameOfLifeObj.makeItASActiveCell(boardObj2.board, 3, 1)
         gameOfLifeObj.makeItASActiveCell(boardObj2.board, 3, 4)
         gameOfLifeObj.makeItASActiveCell(boardObj2.board, 4, 2)
+
         for i in range(9):
             gameOfLifeObj.playTheGame(boardObj1)
 

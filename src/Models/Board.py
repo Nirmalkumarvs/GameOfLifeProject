@@ -1,3 +1,5 @@
+from colorama import Fore
+
 class Board:
     rowLength = 0
     columnLength = 0
@@ -7,3 +9,13 @@ class Board:
         self.board = [[0] * columnLength for row in range(rowLength)]
         self.rowLength = rowLength
         self.columnLength = columnLength
+
+    def printBoard(self):
+        for rowIndex in range(self.rowLength):
+            for columnIndex in range(self.columnLength):
+                if self.board[rowIndex][columnIndex] == 0:
+                    print(Fore.WHITE+"[+]", end="")
+                else:
+                    print(Fore.BLACK+"[+]",end="")
+
+            print()

@@ -27,6 +27,11 @@ class TestMethods(unittest.TestCase):
 
         self.assertEqual(boardObj2.board, boardObj1.board)
 
-    
+    def test_makeItAsDeadCell_method(self):
+        boardObj = Board(10, 50)
+        gameOfLifeObj = GameOfLife()
+        gameOfLifeObj.makeItASActiveCell(boardObj.board,0,0)
+        self.assertEqual(True, gameOfLifeObj.isActiveCell(boardObj.board,0,0))
+
 if __name__ == '__main__':
     unittest.main()

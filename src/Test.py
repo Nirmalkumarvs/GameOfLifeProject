@@ -43,5 +43,12 @@ class TestMethods(unittest.TestCase):
         gameOfLifeObj.makeItASActiveCell(boardObj.board, 1, 2)
         self.assertEqual(5, gameOfLifeObj.getActiveNeighbourCellsCount(1,1,boardObj))
 
+    def test_CellWithOneOrNoNeighbors(self):
+        boardObj1 = Board(10, 50)
+        boardObj2 = Board(10, 50)
+        gameOfLifeObj = GameOfLife()
+        gameOfLifeObj.makeItASActiveCell(boardObj1.board, 0, 0)
+        gameOfLifeObj.makeItASActiveCell(boardObj1.board, 1, 1)
+        self.assertEqual(boardObj1.board, gameOfLifeObj.playTheGame(boardObj2))
 if __name__ == '__main__':
     unittest.main()

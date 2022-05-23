@@ -20,3 +20,20 @@ class GameOfLife:
             if Board.isValidIndex(neighbourRowIndex, neighbourColumnIndex) and self.isActiveCell(Board,neighbourRowIndex, neighbourColumnIndex):
                 activeNeighbourCellsCount += 1
         return activeNeighbourCellsCount
+
+    def playTheGame(self,Board):
+        resultBoard=[[0]*Board.columnLength for rowIndex in range(Board.rowLength)]
+        for rowIndex in range(Board.rowLength):
+            for columnIndex in range(Board.columnLength):
+                activeNeighbourCellsCount=self.getActiveNeighbourCellsCount(rowIndex,columnIndex,Board)
+                if self.isActiveCell(Board,rowIndex,columnIndex):
+                    if activeNeighbourCellsCount < 2 or activeNeighbourCellsCount > 3:
+                        self.makeItAsDeadCell(resultBoard,rowIndex,columnIndex)
+                    else:
+                        self.makeItASActiveCell(resultBoard, rowIndex, columnIndex)
+                else:
+                    if activeNeighbourCellsCount == 3:
+                        self.makeItASActiveCell(resultBoard, rowIndex, columnIndex)
+                    else:
+                        self.makeItAsDeadCell(resultBoard,rowIndex,columnIndex)
+        Board.board[::] = resultBoard[::]

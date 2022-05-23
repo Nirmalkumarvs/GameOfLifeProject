@@ -156,7 +156,28 @@ class Test_OscillatoresPattern(unittest.TestCase):
 
         self.assertEqual(boardObj1.board, boardObj2.board)
 
-    
+    def test_ToadPattern(self):
+        boardObj1 = Board(10, 50)
+        boardObj2 = Board(10, 50)
+        gameOfLifeObj = GameOfLife()
+        gameOfLifeObj.makeItASActiveCell(boardObj1.board, 2, 2)
+        gameOfLifeObj.makeItASActiveCell(boardObj1.board, 2, 3)
+        gameOfLifeObj.makeItASActiveCell(boardObj1.board, 2, 4)
+        gameOfLifeObj.makeItASActiveCell(boardObj1.board, 3, 1)
+        gameOfLifeObj.makeItASActiveCell(boardObj1.board, 3, 2)
+        gameOfLifeObj.makeItASActiveCell(boardObj1.board, 3, 3)
+
+        gameOfLifeObj.makeItASActiveCell(boardObj2.board, 1, 3)
+        gameOfLifeObj.makeItASActiveCell(boardObj2.board, 2, 1)
+        gameOfLifeObj.makeItASActiveCell(boardObj2.board, 2, 4)
+        gameOfLifeObj.makeItASActiveCell(boardObj2.board, 3, 1)
+        gameOfLifeObj.makeItASActiveCell(boardObj2.board, 3, 4)
+        gameOfLifeObj.makeItASActiveCell(boardObj2.board, 4, 2)
+        for i in range(9):
+            gameOfLifeObj.playTheGame(boardObj1)
+
+        self.assertEqual(boardObj1.board, boardObj2.board)
+
 
 if __name__ == '__main__':
     unittest.main()

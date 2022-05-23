@@ -100,6 +100,27 @@ class TestGameOfLifeGameConditions(unittest.TestCase):
 
         self.assertEqual(boardObj1.board, boardObj2.board)
 
+class Test_StillLifesPattern(unittest.TestCase):
+    
+    def test_BlockPattern(self):
+        boardObj1 = Board(10, 50)
+        boardObj2 = Board(10, 50)
+        gameOfLifeObj = GameOfLife()
+        gameOfLifeObj.makeItASActiveCell(boardObj1.board, 1, 1)
+        gameOfLifeObj.makeItASActiveCell(boardObj1.board, 1, 2)
+        gameOfLifeObj.makeItASActiveCell(boardObj1.board, 2, 1)
+        gameOfLifeObj.makeItASActiveCell(boardObj1.board, 2, 2)
+
+        boardObj2.board=boardObj1.board[::]
+
+        for i in range(10):
+            gameOfLifeObj.playTheGame(boardObj1)
+
+        self.assertEqual(boardObj1.board, boardObj2.board)
+
+
+class Test_OscillatoresPattern(unittest.TestCase):
+    pass
 
 if __name__ == '__main__':
     unittest.main()

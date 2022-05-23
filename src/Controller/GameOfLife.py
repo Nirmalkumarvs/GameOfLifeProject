@@ -1,7 +1,27 @@
+from src.Models.Boards import *
+
 class GameOfLife:
     DIRECTIONS = [[-1, -1], [-1, 0], [0, -1], [1, 0], [0, 1], [1, 1], [1, -1], [-1, 1]] #to access the all eight neighbouring cells
     ACTIVE_CELL = 1
     DEAD_CELL = 0
+
+    def chooseBoard(self,Board):
+        print("Select Board\nAvailable Boards")
+        for index,board in enumerate(AVAILABLE_BOARDS):
+            print(str(index+1)+")."+board)
+        boardChoice=int(input())
+        if boardChoice==1:
+            setKickbackPattern(Board)
+        elif boardChoice==2:
+            setTwoGliderPattern(Board)
+        elif boardChoice == 3:
+            setAcorn(Board)
+        elif boardChoice==4:
+            setTpattern(Board)
+        elif boardChoice == 5:
+            setSquarePattern(Board)
+        elif boardChoice==6:
+            setTrianglePattern(Board)
 
     def isActiveCell(self,Board,rowIndex,columnIndex):
         return Board.board[rowIndex][columnIndex]==self.ACTIVE_CELL

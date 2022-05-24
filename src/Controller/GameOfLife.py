@@ -6,26 +6,11 @@ class GameOfLife:
     DEAD_CELL = 0
 
     def chooseBoard(self,Board):
-        print("Select Board\nAvailable Boards")
-        for index,board in enumerate(AVAILABLE_BOARDS):
-            print(str(index+1)+")."+board)
+        print("Select Board\nAvailable BoardsContainer")
+        for index in AVAILABLE_BOARDS:
+            print(str(index)+")."+str(AVAILABLE_BOARDS[index][0]))
         boardChoice=int(input())
-        if boardChoice==1:
-            setKickbackPattern(Board)
-        elif boardChoice==2:
-            setTwoGliderPattern(Board)
-        elif boardChoice == 3:
-            setAcorn(Board)
-        elif boardChoice==4:
-            setTpattern(Board)
-        elif boardChoice == 5:
-            setSquarePattern(Board)
-        elif boardChoice==6:
-            setTrianglePattern(Board)
-        elif boardChoice==7:
-            setBlinkerPattern(Board)
-        elif boardChoice==8:
-            setToadPattern(Board)
+        AVAILABLE_BOARDS[boardChoice][1].setPattern(Board)
 
     def isActiveCell(self,Board,rowIndex,columnIndex):
         return Board.board[rowIndex][columnIndex]==self.ACTIVE_CELL
